@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="W4InClassAssignments.MainPage">
+
+    <Grid RowDefinitions="30,100,30,*" RowSpacing="20" Margin="20">
+        <Label Text="Enter your text:" FontSize="20"/>
+        <Entry 
+            x:Name="TheTextEntry"
+            Grid.Row="1" 
+            Placeholder="Type here" 
+            BackgroundColor="Aquamarine"
+            TextChanged="TheTextEntry_OnTextChanged"
+            />
+        <Label Grid.Row="2" Text="Length of the text" FontSize="20"/>
+        <Label 
+            x:Name="TheLabel"
+            Grid.Row="3" 
+            Text="0" 
+            BackgroundColor="Bisque" 
+            FontSize="24"
+            VerticalTextAlignment="Center"
+            HorizontalTextAlignment="Center"
+            />
+        
+    </Grid>
+
+</ContentPage>
