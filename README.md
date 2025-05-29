@@ -208,16 +208,6 @@ Delete the existing content of the page and replace with the following. Here, It
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ListDetailsDemo.Views.MainPage"
              Title="Item List">
-             
-    <!-- <CollectionView x:Name="ItemList" SelectionMode="Single" SelectionChanged="OnSelectionChanged"> -->
-    <!--     <CollectionView.ItemTemplate> -->
-    <!--         <DataTemplate> -->
-    <!--             <Frame Padding="10" Margin="5" BackgroundColor="BlueViolet"> -->
-    <!--                 <Label Text="{Binding Title}" FontSize="20"/> -->
-    <!--             </Frame> -->
-    <!--         </DataTemplate> -->
-    <!--     </CollectionView.ItemTemplate> -->
-    <!-- </CollectionView> -->
     
     
     <CollectionView x:Name="ItemList">
@@ -367,16 +357,7 @@ public partial class MainPage : ContentPage
             { nameof(DetailPage.SelectedItem), new Item{Title = "Item x", Description = "Description xxx"} }
         });
         
-        // var selectedItem = e.CurrentSelection.FirstOrDefault() as Item;
-        // if (selectedItem != null)
-        // {
-        //     await Shell.Current.GoToAsync("DetailPage", new Dictionary<string, object>
-        //     {
-        //         { "SelectedItem", new Item{Title = "Item x", Description = "Description xxx"} }
-        //     });
-        //
-        //     ((CollectionView)sender).SelectedItem = null;
-        // }
+        
     }
 }
 ```
@@ -406,11 +387,6 @@ public partial class MainPage : ContentPage
 
     private async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        // await Shell.Current.GoToAsync(nameof(DetailPage), new Dictionary<string, object>
-        // {
-        //     { nameof(DetailPage.SelectedItem), new Item{Title = "Item x", Description = "Description xxx"} }
-        // });
-        
         var selectedItem = e.CurrentSelection.FirstOrDefault() as Item;
         if (selectedItem != null)
         {
