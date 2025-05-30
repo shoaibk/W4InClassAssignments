@@ -7,7 +7,7 @@ using ListDetailsDemo.Models;
 
 namespace ListDetailsDemo.Views;
 
-[QueryProperty(nameof(SelectedItem), "SelectedItem")]
+[QueryProperty(nameof(SelectedItem), nameof(SelectedItem))]
 public partial class DetailPage : ContentPage
 {
     private Item? _selectedItem;

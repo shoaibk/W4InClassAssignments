@@ -23,7 +23,7 @@ public partial class MainPage : ContentPage
     {
         Shell.Current.GoToAsync(nameof(DetailPage), new Dictionary<string, object>
         {
-            { "SelectedItem", new Item { Title = "Apples", Description = "2 apples" }},
+            { "SelectedItem", e.CurrentSelection.FirstOrDefault()},
         });
     }
 }
