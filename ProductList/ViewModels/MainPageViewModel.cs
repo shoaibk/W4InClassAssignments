@@ -15,8 +15,24 @@ public class MainPageViewModel
     
     private async void LoadProducts()
     {
-        var client = new HttpClient();
-        Products = await client.GetFromJsonAsync<ObservableCollection<Product>>("https://fakestoreapi.com/products");
+        try
+        {
+            var client = new HttpClient();
+            var items = await client.GetFromJsonAsync<List<Product>>("https://fakestoreapi.com/products");
+
+            if (items != null)
+            {
+                Products.Clear();
+                foreach (var item in items)
+                {
+                    Products.Add(item);
+                }
+            }    
+        } catch (Exception ex)
+        {
+            Console.WriteLine($"Failed to laod products: {ex.Message}");
+        }
+        
     }
     
 }
