@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:MvvmToolkitDemo.ViewModels"
+             x:Class="MvvmToolkitDemo.MainPage">
+
+    <ContentPage.BindingContext>
+        <viewmodels:MainViewModel />
+    </ContentPage.BindingContext>
+    <StackLayout Spacing="40" Padding="30">
+        <Label Text="Counter" 
+               FontSize="40"
+               HorizontalOptions="Center"
+               />
+        <Label Text="{Binding Count}"/>
+        <Button Text="Click to increment"
+                Command="{Binding IncrementCommand}"
+                />
+    </StackLayout>
+
+</ContentPage>
