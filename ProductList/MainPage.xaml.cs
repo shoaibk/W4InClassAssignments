@@ -17,9 +17,12 @@ public partial class MainPage : ContentPage
         var selectedProduct = e.CurrentSelection.FirstOrDefault();
         if (selectedProduct == null) return;
         
+        ((CollectionView)sender).SelectedItem = null;
+
+        
         await Shell.Current.GoToAsync(nameof(DetailPage), new Dictionary<string, object>
         {
-            ["SelectedProduct"] = selectedProduct
+            {"SelectedProduct", selectedProduct}
         });
 
     }

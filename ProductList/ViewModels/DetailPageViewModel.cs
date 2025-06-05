@@ -20,10 +20,10 @@ public class DetailPageViewModel: INotifyPropertyChanged
             OnPropertyChanged(nameof(Image));
         }
     }
-
-    public string Title => Product.Title;
-    public string Description => Product.Description;
-    public string Image => Product.Image;
+    
+    public string Title => Product?.Title ?? string.Empty;
+    public string Description => Product?.Description ?? string.Empty;
+    public string Image => Product?.Image ?? string.Empty;
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -31,12 +31,5 @@ public class DetailPageViewModel: INotifyPropertyChanged
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
-
-    protected bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
-    {
-        if (EqualityComparer<T>.Default.Equals(field, value)) return false;
-        field = value;
-        OnPropertyChanged(propertyName);
-        return true;
-    }
+    
 }

@@ -6,7 +6,7 @@ namespace ProductList.ViewModels;
 
 public class MainPageViewModel
 {
-    public ObservableCollection<Product> Products { get; set; } = new();
+    public ObservableCollection<Product> Products { get; } = new();
 
     public MainPageViewModel()
     {

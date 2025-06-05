@@ -11,14 +11,16 @@ namespace ProductList.Views;
 [QueryProperty(nameof(SelectedProduct), nameof(SelectedProduct)), ]
 public partial class DetailPage : ContentPage
 {
-    private DetailPageViewModel _viewModel = new();
+    private readonly DetailPageViewModel? viewModel;
+
     public Product SelectedProduct
-    {
-        set => BindingContext = value;
+    { 
+        set => viewModel.Product = value;
+        
     }
     public DetailPage()
     {
         InitializeComponent();
-        BindingContext = _viewModel;
+        viewModel = BindingContext as DetailPageViewModel;
     }
 }
